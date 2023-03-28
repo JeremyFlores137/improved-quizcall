@@ -1,13 +1,293 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+:root {
+  --pink: #f472f2;
+  --sky-blue: #7cfafd;
+}
+@font-face {
+  font-family: Janda;
+  src: url('./assets/JandaCurlygirlSerif.ttf');
+}
+/*start*/
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bounceIn {
+  animation-duration: calc(var(--animate-duration) * 0.75);
+  animation-name: bounceIn;
+}
+/*end*/
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to left, rgb(10, 9, 25), #121024, #1c1a2e);
+}
+.title {
+  text-align: center;
+  font-family: Janda, sans-serif;
+  color: whitesmoke;
+  font-size: 1.6rem;
+  line-height: 0.6;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  font-weight: bold;
+  color: #fdd7e2;
+}
+.check {
+  display: none;
+}
+.first-word {
+  font-size: 2rem;
+  color: #fe7f2d;
+}
+.second-word {
+  font-size: 2rem;
+  color: #fcca46;
+}
+.third-word {
+  font-size: 2rem;
+  color: #a1c181;
+}
+.quizzical-logo {
+  margin: auto;
+  border-radius: 50%;
+  width: 5em;
+  border: 2px solid var(--pink);
+  transition: top, left, right, bottom, 500ms;
+}
+.quizzical-logo:hover,
+.quizzical-logo:focus {
+  box-shadow: 0px 0px 25px var(--pink);
+  cursor: pointer;
+}
+.quizzical-logo:active {
+  animation: bounceIn 1s;
+}
+.paragraph {
+  font-family: 'Alkatra', cursive;
+  margin: auto;
+  font-size: 1.2rem;
+  width: 85vw;
+  text-align: center;
+  margin-top: 1.2em;
+}
+.pink {
+  color: var(--pink);
+}
+.blue {
+  color: var(--sky-blue);
+}
+.body-img {
+  text-align: center;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.stars-gif {
+  width: 0;
+}
+.underline {
+  text-decoration: underline #e76f51 dashed;
+  font-size: 8rem;
+}
+.select {
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 0.5em;
+  margin: 0.5em;
+  color: #b5179e;
+  background-color: #fdf7fa;
+}
+.set-up {
+  font-family: 'Alkatra', cursive;
+  margin: 2em auto;
+  display: grid;
+  font-size: 1rem;
+  color: #f2b5d4;
+  width: 21em;
+  border: 0.15em dashed var(--pink);
+  outline: 0.15em dashed var(--sky-blue);
+  padding: 0.8em;
+  transition: top, left, right, bottom, 500ms;
+}
+.set-up:hover,
+.set-up:focus {
+  box-shadow: 0px 0px 1.5em var(--pink);
+}
+.start-btn,
+.check-btn {
+  margin-top: 15px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #8f0005;
+  color: #e7c8dd;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 14em;
+  height: 3.5em;
+  justify-self: center;
+  margin: 1.2em;
+  transition: top, left, right, bottom, 0.8s;
+}
+.start-btn:hover,
+.check-btn:hover {
+  background-color: #280004;
+}
+.start-btn:active,
+.check-btn:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(25, 2, 2, 0.7);
+}
+.answers {
+  font-family: 'Alkatra', cursive;
+  padding: 0;
+  color: #ebf8e7;
+  border-bottom: solid 1px #ebf8e7;
+}
+.alt{
+  font-size: 1.2rem;
+  transition: top, left, right, bottom, 0.8s;
+}
+.alt:hover, .alt:focus{
+  background-color: #352e77;
+}
+.questions {
+  font-family: 'Alkatra', cursive;
+  font-size: 1.8rem;
+  line-height: 1.6rem;
+  color: #ffafcc;
+  margin: 2em 0;
+}
+.questions-box {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.game-box {
+  padding: 0.5em;
+}
+.intro-box{
+  padding: 0;
+  margin: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #ebf8e7;
+  border-radius: 15px;
+  height: 3em;
+  margin: 2em 0;
+  cursor: pointer;
+}
+.results{
+  color: white;
+  font-family: 'Alkatra', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 992px) {
+  .first-word,
+  .second-word,
+  .third-word {
+    font-size: 7rem;
+  }
+  .answers {
+    text-align: center;
+    list-style: none;
+    display: grid;
+    grid-template: auto/ repeat(4, 1fr);
+    grid-gap: 2em;
+    align-items: center;
+    font-size: 0.9rem;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+    padding: 0;
+  }
+  li {
+    justify-content: center;
+    height: 5.5em;
+  }
+  .stars-gif {
+    background-image: url('https://media.giphy.com/media/26BRyql7J3iOx875u/giphy.gif');
+    width: 10em;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  .title {
+    font-size: 5rem;
+    line-height: 1;
+    padding: default;
+  }
+  .quizzical-logo {
+    width: 15em;
+  }
+  .paragraph {
+    width: 50vw;
+    font-size: 2.5rem;
+  }
+  .set-up {
+    font-size: 2rem;
+    width: 25em;
+  }
+  .select {
+    font-size: 1.5rem;
+  }
+  .start-btn,
+  .check-btn {
+    width: 8em;
+    font-size: 1.8rem;
+  }
+  .check-btn {
+    margin: 1.5em auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check {
+    display: inline;
+  }
 }

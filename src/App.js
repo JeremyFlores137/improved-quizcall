@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { Intro, Question } from './components';
+import { useAppContext } from './context/appContext';
 function App() {
+  const { hasStarted } = useAppContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='main'>
+      <img
+        src='https://media.giphy.com/media/26BRyql7J3iOx875u/giphy.gif'
+        className='stars-gif'
+        alt='stars falling'
+      />
+      {hasStarted ? <Question /> : <Intro />}
+      <img
+        src='https://media.giphy.com/media/26BRyql7J3iOx875u/giphy.gif'
+        className='stars-gif'
+        alt='stars falling'
+      />
+    </main>
   );
 }
 
