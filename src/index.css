@@ -165,6 +165,7 @@ body {
   width: 14em;
   height: 3.5em;
   margin: 1.2em;
+  justify-self: center;
   transition: top, left, right, bottom, 0.8s;
 }
 .check-btn{
